@@ -3,15 +3,22 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
+<h1>Welcome to My Site</h1>
 {% if user.is_authenticated %}
-Hi {{ user.username }}!
-<p><a href="{% url 'password_change' %}">Password Change</a></p>
-<form action="{% url 'logout' %}" method="post">
-    {% csrf_token %}
-    <button type="submit" class="btn btn-primary">Log Out</button>
-</form>
+    <h2>Welcome {{ user.username }}!</h2>
+    <p>You  are currently logged in.</p>
+    <p><a href="{% url 'account_logout' %}">Log Out</a></p>
 {% else %}
-<p>You are not logged in. Oh well, bye!</p>
-<a href="{% url 'account_login' %}">Log In</a>
+    <h2>You  are not logged in.</h2>
+    <p>Please log in or sign up to access all features.</p>
 {% endif %}
+
+<h2>Options:</h2>
+<ul>
+  {% if not user.is_authenticated %}
+    <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
+    <li><a href="{% url 'account_login' %}">Log In</a></li>
+  {% endif %}
+  <li><a href="{% url 'account_reset_password' %}">Reset Password</a></li>
+</ul>
 {% endblock %}
