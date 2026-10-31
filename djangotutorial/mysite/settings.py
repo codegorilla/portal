@@ -38,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'debug_toolbar',
+    'allauth',
+    'allauth.account',
     'accounts',
 ]
 
@@ -51,7 +54,23 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
+
+# This list isn't present by default, added both backends when
+# configuring allauth
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+# Added for allauth
+SITE_ID = 1
+
+# Added for allauth
+ACCOUNT_EMAIL_VERIFICATION = "none"
+
 
 ROOT_URLCONF = 'mysite.urls'
 

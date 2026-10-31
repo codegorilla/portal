@@ -12,6 +12,6 @@ Hi {{ user.username }}!
 </form>
 {% else %}
 <p>You are not logged in. Oh well, bye!</p>
-<a href="{% url 'login' %}">Log In</a>
+<a href="{% url 'account_login' %}">Log In</a>
 {% endif %}
 {% endblock %}
