@@ -22,3 +22,17 @@ class Choice (models.Model):
 
     def __str__ (self):
         return self.choice_text
+
+class Product (models.Model):
+    name = models.CharField(max_length=256)
+    abbreviation = models.CharField(max_length=64)
+
+# class Group (models.Model):
+#     name = models.CharField(max_length=64)
+
+# class User (models.Model):
+#     name = models.CharField(max_length=64)
+
+# class Role (models.Model):
+#     name = models.CharField(max_length=128)
+#     description = models.TextField()
