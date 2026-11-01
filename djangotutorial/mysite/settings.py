@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'allauth',
     'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.openid_connect',
     'accounts',
 ]
 
@@ -64,6 +66,19 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
+
+
+# Callback URL (verified working): http://localhost:8080/accounts/oidc/auth0/login/callback/
+# Logout URL (not verified): http://localhost:8080/
+
+SOCIALACCOUNT_PROVIDERS = {
+    'openid_connect': {
+        'APPS': [
+            ### STUFF HERE ###
+        ]
+    }
+}
+
 
 # Added for allauth
 SITE_ID = 1
