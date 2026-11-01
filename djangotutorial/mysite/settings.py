@@ -79,6 +79,8 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
+ACCOUNT_ADAPTER = "accounts.adapters.CustomAccountAdapter"
+
 
 # Added for allauth
 SITE_ID = 1
