@@ -20,8 +20,14 @@ from django.urls import include, path
 from django.views.generic.base import TemplateView
 from debug_toolbar.toolbar import debug_toolbar_urls
 
+from allauth.account.views import LoginView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    # Use this for home page to just show auth0 login page
+    # path("", LoginView.as_view(), name="account_login"),
+
     # path('accounts/', include("accounts.urls")),
     # path('accounts/', include("django.contrib.auth.urls")),
     path('accounts/', include("allauth.urls")),
